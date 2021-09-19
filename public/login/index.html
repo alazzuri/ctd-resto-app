@@ -11,12 +11,29 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="./styles.css" />
-    <title>Resto - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gluten&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./fast-food.png" type="image/x-icon" />
+    <title>Comida Ya! - Login</title>
   </head>
   <body
-    class="container-fluid d-flex justify-content-center align-items-center"
+    class="
+      container-fluid
+      d-flex
+      flex-column
+      justify-content-center
+      align-items-center
+    "
   >
-    <main class="d-flex flex-column justify-content-center align-items-center">
+    <header class="w-100 d-flex justify-content-center align-items-baseline">
+      <img src="./fast-food.png" alt="logo" class="mx-3" />
+      <h1 class="d-flex align-items-center mb-4">Comida Ya!</h1>
+    </header>
+    <main class="d-flex flex-column align-items-center">
       <form class="d-flex flex-column col-12">
         <div class="mb-3">
           <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
@@ -26,7 +43,7 @@
         </div>
         <div class="mb-4">
           <label for="inputPassword" class="col-sm-2 col-form-label"
-            >Password</label
+            >Contraseña</label
           >
           <div class="col">
             <input type="password" class="form-control" id="inputPassword" />

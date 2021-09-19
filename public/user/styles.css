@@ -1,3 +1,34 @@
+body {
+  background-color: #dbe4ee;
+  height: 100vh;
+  font-family: "Gluten", cursive;
+  color: #272932;
+  height: 100vh;
+}
+
 #productPhoto {
-  max-width: 100px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+#logo {
+  width: 50px;
+}
+
+.card {
+  box-shadow: 4px 4px 4px #837569;
+  height: 300px;
+}
+
+#orderStatusDetail {
+  width: 150px;
+  margin: 10rem auto;
+  border: none;
+  text-align: center;
+  border-radius: 50px;
+}
+
+.spacer {
+  height: 1rem;
 }

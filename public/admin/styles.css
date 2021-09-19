@@ -1,13 +1,26 @@
+body {
+  background-color: #dbe4ee;
+  height: 100vh;
+  font-family: "Gluten", cursive;
+  color: #272932;
+  height: 100vh;
+}
+
 #productPhoto {
   max-width: 100px;
 }
 
 form {
-  border: 2px solid lightgray;
+  border: 2px solid #837569;
   padding: 1.5rem 3rem;
   border-radius: 12px;
+  box-shadow: -3px -3px 10px #837569;
 }
 
 .hidden {
   display: none !important;
+}
+
+#logo {
+  width: 50px;
 }

@@ -149,9 +149,9 @@ const renderProducts = (productsData) => {
 
   productsData.map((product) => {
     const productCard = `
-      <div class="card m-4" style="width: 18rem">
-      <img src="${product.photo}" class="card-img-top" alt="${product.name}" />
-      <div class="card-body">
+      <div class="card m-4 p-0 d-flex flex-column justify-content-between" style="width: 18rem">
+      <img src="${product.photo}" class="card-img-top h-50" alt="${product.name}"/>
+      <div class="card-body d-flex flex-column justify-content-between">
       <h5 class="card-title">${product.name}</h5>
       <p class="card-text">
       $${product.price}
@@ -188,11 +188,13 @@ const renderOrders = (ordersData) => {
 
   ordersData.forEach((order) => {
     const tr = document.createElement("tr");
+    const spacer = document.createElement("tr");
+    spacer.classList.add("spacer");
 
     tr.innerHTML = `
-            <td class="table-${getColorByStatus(order.status)}">${getStatusName(
-      order.status
-    )}</td>
+            <td class="table-${getColorByStatus(
+              order.status
+            )}" id="orderStatusDetail">${getStatusName(order.status)}</td>
             <td>$${order.amount}</td>
             <td>${order.description}</td>
             <td>${
@@ -202,40 +204,9 @@ const renderOrders = (ordersData) => {
             }</td>
             `;
 
+    detailsContainer.appendChild(spacer);
     detailsContainer.appendChild(tr);
   });
-
-  const deleteButtons = document.querySelectorAll(".deleteOrder");
-  const editButtons = document.querySelectorAll(".editOrder");
-  const updateButton = document.querySelector("#updateStatusBtn");
-
-  editButtons.forEach(
-    (button) =>
-      (button.onclick = async (e) => {
-        const { id } = e.target.dataset;
-
-        const modalTitle = document.querySelector("#orderNumber");
-        modalTitle.textContent = id;
-      })
-  );
-
-  deleteButtons.forEach(
-    (button) =>
-      (button.onclick = async (e) => {
-        const { id } = e.target.dataset;
-
-        const response = await deleteData(`${BASE_URL}/orders`, id);
-        if (response) return window.location.reload();
-      })
-  );
-
-  updateButton.onclick = async () => {
-    const id = document.querySelector("#orderNumber").textContent;
-    const status = document.querySelector("#orderStatus").value;
-
-    const response = await updateData(`${BASE_URL}/orders`, id, { status });
-    if (response) return window.location.reload();
-  };
 };
 
 const createOrder = async () => {
