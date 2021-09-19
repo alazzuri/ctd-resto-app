@@ -1,0 +1,9 @@
+main {
+  height: 100vh;
+}
+
+form {
+  border: 2px solid lightgray;
+  padding: 1.5rem 3rem;
+  border-radius: 12px;
+}

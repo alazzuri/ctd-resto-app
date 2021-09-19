@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Resto - Login</title>
+  </head>
+  <body
+    class="container-fluid d-flex justify-content-center align-items-center"
+  >
+    <main class="d-flex flex-column justify-content-center align-items-center">
+      <form class="d-flex flex-column col-12">
+        <div class="mb-3">
+          <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+          <div class="col">
+            <input type="email" class="form-control" id="inputEmail" />
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="inputPassword" class="col-sm-2 col-form-label"
+            >Password</label
+          >
+          <div class="col">
+            <input type="password" class="form-control" id="inputPassword" />
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary mb-3" id="loginBtn">
+          Iniciar sesión
+        </button>
+        <p class="w-100 d-flex justify-content-between align-items-center">
+          <small>No tienes cuenta?</small>
+          <button class="btn btn-link" id="createAccountBtn">
+            <small> Crear cuenta </small>
+          </button>
+        </p>
+      </form>
+    </main>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>

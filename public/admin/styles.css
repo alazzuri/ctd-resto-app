@@ -1,0 +1,13 @@
+#productPhoto {
+  max-width: 100px;
+}
+
+form {
+  border: 2px solid lightgray;
+  padding: 1.5rem 3rem;
+  border-radius: 12px;
+}
+
+.hidden {
+  display: none !important;
+}
