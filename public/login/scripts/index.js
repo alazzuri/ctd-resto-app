@@ -1,9 +1,3 @@
-const BASE_URL = "http://localhost:5000/v1";
-// const BASE_URL = "https://ctd-api-resto.herokuapp.com/v1";
-
-const LOGIN_BUTTON = document.querySelector("#loginBtn");
-const CREATE_ACCOUNT_BUTTON = document.querySelector("#createAccountBtn");
-
 const checkTokenAndRedirect = () => {
   const token = localStorage.getItem("TOKEN");
 
@@ -58,6 +52,7 @@ const onHandleCreateAccount = (e) => {
   window.location.assign("/register");
 };
 
+//EVENT LISTENERS
 window.addEventListener("load", checkTokenAndRedirect);
 
 LOGIN_BUTTON.addEventListener("click", async (e) => {

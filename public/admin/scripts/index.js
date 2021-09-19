@@ -1,118 +1,4 @@
-const BASE_URL = "http://localhost:5000/v1";
-// const BASE_URL = "https://ctd-api-resto.herokuapp.com/v1";
-const CREATE_PRODUCT_BUTTON = document.querySelector("#createProduct");
-const CANCEL_SAVE_PRODUCT = document.querySelector("#cancelSaveProduct");
-const SAVE_PRODUCT = document.querySelector("#saveProduct");
-const LOGOUT_BUTTON = document.querySelector("#logout");
-
-const getColorByStatus = (status) => {
-  switch (status) {
-    case "new":
-      return "danger";
-    case "confirmed":
-      return "primary";
-    case "preparing":
-      return "info";
-    case "delivering":
-      return "warning";
-    case "delivered":
-      return "success";
-
-    default:
-      "danger";
-      break;
-  }
-};
-
-const getStatusName = (status) => {
-  switch (status) {
-    case "new":
-      return "Nueva";
-    case "confirmed":
-      return "Confirmada";
-    case "preparing":
-      return "En preparación";
-    case "delivering":
-      return "En camino";
-    case "delivered":
-      return "Entregada";
-
-    default:
-      "Nueva";
-      break;
-  }
-};
-
-const getData = async (endpoint) => {
-  const token = localStorage.getItem("TOKEN");
-
-  if (!token) return window.location.assign("/");
-
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("Authorization", token);
-
-  try {
-    const response = await fetch(endpoint, { headers: myHeaders });
-    const json = await response.json();
-
-    if (!response.ok) throw new Error(json);
-
-    return json;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const updateData = async (endpoint, id, body) => {
-  const token = localStorage.getItem("TOKEN");
-
-  if (!token) return window.location.assign("/");
-
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("Authorization", token);
-
-  try {
-    const response = await fetch(`${endpoint}/${id}`, {
-      method: "PUT",
-      headers: myHeaders,
-      body: JSON.stringify(body),
-    });
-    const json = await response.json();
-
-    if (!response.ok) throw new Error(json);
-
-    return json;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const deleteData = async (endpoint, id) => {
-  const token = localStorage.getItem("TOKEN");
-
-  if (!token) return window.location.assign("/");
-
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("Authorization", token);
-
-  try {
-    const response = await fetch(`${endpoint}/${id}`, {
-      method: "DELETE",
-      headers: myHeaders,
-    });
-    const json = await response.json();
-
-    if (!response.ok) throw new Error(json);
-
-    return json;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
+// RENDERS
 const renderProducts = (productsData) => {
   const detailsContainer = document.querySelector("#productsDetail");
 
@@ -265,6 +151,7 @@ const renderOrders = (ordersData) => {
   };
 };
 
+// ROOT FUNCTION
 const getDataAndFillTables = async () => {
   const productsData = await getData(`${BASE_URL}/products`);
   const ordersData = await getData(`${BASE_URL}/orders`);
@@ -275,6 +162,7 @@ const getDataAndFillTables = async () => {
   renderOrders(ordersData);
 };
 
+// EVENT LISTENERS
 SAVE_PRODUCT.addEventListener("click", async (e) => {
   e.preventDefault();
   const name = document.querySelector("#inputProductName").value;

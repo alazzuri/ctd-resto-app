@@ -10,7 +10,7 @@
       integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles/styles.css" />
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
@@ -22,7 +22,11 @@
       href="https://fonts.googleapis.com/css2?family=Gluten&display=swap"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="./fast-food.png" type="image/x-icon" />
+    <link
+      rel="shortcut icon"
+      href="./assets/fast-food.png"
+      type="image/x-icon"
+    />
     <title>Comida Ya! - Dashboard</title>
   </head>
   <body class="container-fluid d-flex flex-column align-items-center">
@@ -37,7 +41,7 @@
     >
       <div class="container-fluid">
         <div class="d-flex align-items-center">
-          <img src="./fast-food.png" alt="logout" id="logo" />
+          <img src="./assets/fast-food.png" alt="logout" id="logo" />
           <h1 class="m-0 px-3 d-flex align-items-center">
             Comida Ya!- Dashboard
           </h1>
@@ -260,7 +264,9 @@
         </div>
       </div>
     </main>
-
-    <script src="./index.js" type="module"></script>
+    <script src="./scripts/constants.js"></script>
+    <script src="./scripts/utils.js"></script>
+    <script src="./scripts/service.js"></script>
+    <script src="./scripts/index.js" type="module"></script>
   </body>
 </html>
