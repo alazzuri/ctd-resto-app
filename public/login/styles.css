@@ -1,8 +1,12 @@
 body {
-  background-color: #dbe4ee;
+  background-color: #ece4b7;
   height: 100vh;
   font-family: "Gluten", cursive;
   color: #272932;
+}
+
+h1 {
+  color: #cc5144;
 }
 
 form {
@@ -10,6 +14,7 @@ form {
   padding: 1.5rem 3rem;
   border-radius: 12px;
   box-shadow: -3px -3px 10px #837569;
+  background-color: whitesmoke;
 }
 
 header img {
