@@ -1,8 +1,8 @@
-const onHandleLogin = async (e) => {
+const onHandleRegister = async (e) => {
   e.preventDefault();
 
   const firstName = document.querySelector("#inputFirstname").value;
-  const lastName = document.querySelector("#inputFirstname").value;
+  const lastName = document.querySelector("#inputLastname").value;
   const email = document.querySelector("#inputEmail").value;
   const password = document.querySelector("#inputPassword").value;
   const radioInputs = [...document.querySelectorAll(".form-check-input")];
@@ -11,6 +11,7 @@ const onHandleLogin = async (e) => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
+  showLoader();
   try {
     const response = await fetch(`${BASE_URL}/users`, {
       method: "POST",
@@ -40,6 +41,7 @@ const onHandleLogin = async (e) => {
   } catch (error) {
     // Agregar mensajes de error
     console.log(error);
+    hideLoader();
   }
 };
 
@@ -50,11 +52,11 @@ const onHandleSignin = (e) => {
 
 // EVENT LISTENERS
 REGISTER_BUTTON.addEventListener("click", async (e) => {
-  await onHandleLogin(e);
+  await onHandleRegister(e);
 });
 
 SIGNIN_BUTTON.addEventListener("click", (e) => {
-  REGISTER_BUTTON.removeEventListener("click", onHandleLogin);
+  REGISTER_BUTTON.removeEventListener("click", onHandleRegister);
   SIGNIN_BUTTON.removeEventListener("click", onHandleSignin);
   onHandleSignin(e);
 });

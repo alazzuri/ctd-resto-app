@@ -153,6 +153,8 @@ const renderOrders = (ordersData) => {
 
 // ROOT FUNCTION
 const getDataAndFillTables = async () => {
+  showLoader();
+
   const productsData = await getData(`${BASE_URL}/products`);
   const ordersData = await getData(`${BASE_URL}/orders`);
   const usersData = await getData(`${BASE_URL}/private/users`);
@@ -160,6 +162,7 @@ const getDataAndFillTables = async () => {
   renderProducts(productsData);
   renderUsers(usersData);
   renderOrders(ordersData);
+  hideLoader();
 };
 
 // EVENT LISTENERS

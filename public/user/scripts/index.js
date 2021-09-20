@@ -113,16 +113,18 @@ const renderOrders = (ordersData) => {
 
 // ROOT FUNCTION
 const getProductsAndFillCards = async () => {
+  showLoader();
+
   const products = await getData(`${BASE_URL}/products`);
   const ordersData = await getData(`${BASE_URL}/orders`);
 
   renderProducts(products);
 
   renderOrders(ordersData);
+  hideLoader();
 };
 
 // EVENT LISTENERS
-
 CONFIRM_ORDER_BUTTON.addEventListener("click", createOrder);
 
 LOGOUT_BUTTON.addEventListener("click", () => {

@@ -44,3 +44,38 @@ td {
 .borderTop {
   border-top: 2px solid black;
 }
+
+.loader {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ece4b7;
+  color: #cc5144;
+}
+
+.loader img {
+  max-width: 70px;
+  animation: loading 2s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(45deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(-45deg) scale(1.2);
+  }
+
+  100% {
+    transform: rotate(45deg) scale(1);
+  }
+}

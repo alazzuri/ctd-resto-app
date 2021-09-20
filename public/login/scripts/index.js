@@ -5,6 +5,7 @@ const checkTokenAndRedirect = () => {
 
   const { role } = token;
 
+  showLoader();
   if (role === "admin") {
     window.location.assign("/admin/dashboard");
   } else {
@@ -20,6 +21,8 @@ const onHandleLogin = async (e) => {
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
+
+  showLoader();
 
   try {
     const response = await fetch(`${BASE_URL}/users/login`, {
@@ -44,6 +47,7 @@ const onHandleLogin = async (e) => {
   } catch (error) {
     // Agregar mensajes de error
     console.log(error);
+    hideLoader();
   }
 };
 
