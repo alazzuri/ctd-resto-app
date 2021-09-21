@@ -171,12 +171,18 @@ SAVE_PRODUCT.addEventListener("click", async (e) => {
   const name = document.querySelector("#inputProductName").value;
   const photo = document.querySelector("#inputImage").value;
   const price = document.querySelector("#inputPrice").value;
+  const ERROR_MESSAGE_COMPONENT = document.querySelector("#errorMessage");
+
   const isEdit = e.target.dataset.isedit === "true";
   const productId = +e.target.dataset.productid;
 
   const token = localStorage.getItem("TOKEN");
 
   if (!token) return window.location.assign("/");
+
+  if (!name || !+price || !photo)
+    return (ERROR_MESSAGE_COMPONENT.textContent =
+      "Alguno de los datos es incorrecto o está incompleto");
 
   if (isEdit && productId) {
     try {
@@ -188,6 +194,7 @@ SAVE_PRODUCT.addEventListener("click", async (e) => {
 
       if (response) return window.location.reload();
     } catch (error) {
+      ERROR_MESSAGE_COMPONENT.textContent = error;
       console.log(error);
     }
   }
@@ -209,6 +216,7 @@ SAVE_PRODUCT.addEventListener("click", async (e) => {
 
     window.location.reload();
   } catch (err) {
+    ERROR_MESSAGE_COMPONENT.textContent = err;
     console.log(err);
   }
 });

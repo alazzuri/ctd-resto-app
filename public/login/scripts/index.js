@@ -18,6 +18,11 @@ const onHandleLogin = async (e) => {
 
   const email = document.querySelector("#inputEmail").value;
   const password = document.querySelector("#inputPassword").value;
+  const ERROR_TEXT_COMPONENT = document.querySelector("#errorMessage");
+
+  if (!email || !password)
+    return (ERROR_TEXT_COMPONENT.textContent =
+      "Alguno de los datos está incompleto");
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -45,8 +50,8 @@ const onHandleLogin = async (e) => {
       window.location.assign("/user/home");
     }
   } catch (error) {
-    // Agregar mensajes de error
     console.log(error);
+    ERROR_TEXT_COMPONENT.textContent = error;
     hideLoader();
   }
 };

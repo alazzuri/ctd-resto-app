@@ -7,6 +7,11 @@ const onHandleRegister = async (e) => {
   const password = document.querySelector("#inputPassword").value;
   const radioInputs = [...document.querySelectorAll(".form-check-input")];
   const selectedRole = radioInputs.find((input) => input.checked).value;
+  const ERROR_TEXT_COMPONENT = document.querySelector("#errorMessage");
+
+  if (!firstName || !lastName || !email || !password)
+    return (ERROR_TEXT_COMPONENT.textContent =
+      "Alguno de los datos está incompleto");
 
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -39,7 +44,7 @@ const onHandleRegister = async (e) => {
       window.location.assign("/user/home");
     }
   } catch (error) {
-    // Agregar mensajes de error
+    ERROR_TEXT_COMPONENT.textContent = error;
     console.log(error);
     hideLoader();
   }

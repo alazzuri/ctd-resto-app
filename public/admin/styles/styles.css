@@ -58,6 +58,11 @@ form {
   display: none;
 }
 
+#errorMessage {
+  max-width: 230px;
+  text-align: center;
+}
+
 @keyframes loading {
   0% {
     transform: rotate(45deg) scale(1);
