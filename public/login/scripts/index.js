@@ -1,7 +1,7 @@
 const checkTokenAndRedirect = () => {
   const token = localStorage.getItem("TOKEN");
 
-  if (!token) return;
+  if (!token) return window.location.assign("/");
 
   const { role } = token;
 
